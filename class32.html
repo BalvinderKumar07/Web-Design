@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #demo {
+            width: 300px;
+            height: 300px;
+            background: red;
+            display: none;  
+        } */
+
+        textarea{
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <select id="data" onchange="ak()">
+        <option value="#8D0B41">color1</option>
+        <option value="#D39D55">color2</option>
+        <option value="green">color3</option>
+        <option value="blue">color4</option>
+    </select> -->
+
+    <!-- <button id="btn" onmouseover="over()" onmouseout="out()">click</button> -->
+
+    <textarea onkeydown="hh()" id="data"></textarea>
+
+    <br><br>
+
+    <h1 id="demo"></h1>
+
+    <!-- <div></div> -->
+    <script>
+        function hh() {
+            let x = document.getElementById("data").value
+            let y = document.getElementById("demo")
+            // let result = "";
+            // // y.innerHTML = x
+
+            // for (let char of x) {
+            //     if (char === char.toUpperCase()) {
+            //         result += char.toLowerCase();
+            //     } else {
+            //         result += char.toUpperCase();
+            //     }
+            // }
+            y.innerText = result;
+        }
+        // function over() {
+        //     let y = document.getElementById("demo")
+        //     y.style.display = "block"
+        // }
+        // function out() {
+        //     let y = document.getElementById("demo")
+        //     y.style.display = "none"
+        // }
+        // function ak() {
+        //     let x = document.getElementById("data").value
+        //     let y = document.getElementById("demo")
+        //     y.style.background = x
+        // }
+
+    </script>
+
+</body>
+
+</html>

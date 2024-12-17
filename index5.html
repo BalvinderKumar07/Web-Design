@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* padding: 100px; */
+            background: #eee;
+        }
+
+
+        .box {
+            width: 300px;
+            height: 300px;
+            background: red;
+            border-radius: 100%;
+            transition: 5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* animation: rot 5s infinite ease-in-out; */
+            background-image: linear-gradient(green, blue);
+        }
+
+        .box:hover {
+            transform: rotatey(360deg);
+            cursor: pointer;
+        }
+
+        @keyframes rot {
+            to {
+                transform: rotate3d(0);
+            }
+
+            from {
+                transform: rotate3d(360deg);
+            }
+        }
+
+        .header {
+            width: 100%;
+            height: 100vh;
+            background-image: url(https://images.pexels.com/photos/5723982/pexels-photo-5723982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            animation: changeimages 10s infinite ease-in-out;
+        }
+
+        @keyframes changeimages {
+            0% {
+                background-image: url(https://images.pexels.com/photos/1661951/pexels-photo-1661951.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+                /* transform: ; */
+            }
+
+            20% {
+                background-image: url(https://images.pexels.com/photos/6029366/pexels-photo-6029366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            }
+
+            40% {
+                background-image: url(https://images.pexels.com/photos/6132400/pexels-photo-6132400.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            }
+
+            60% {
+                background-image: url(https://images.pexels.com/photos/6102393/pexels-photo-6102393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            }
+
+            80% {
+                background-image: url(https://images.pexels.com/photos/3466/gift-present-christmas-xmas.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            }
+
+            100% {
+                background-image: url(https://images.pexels.com/photos/5723982/pexels-photo-5723982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>hello</h1>
+    </div>
+
+    <div class="header">
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            padding: 10px;
+            font-size: 20px;
+            width: 200px;
+        }
+
+        .btn {
+            width: 100px;
+            font-size: 20px;
+            background: rgb(96, 192, 96);
+            color: #fff;
+            padding: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="data1">
+    <input type="text" id="data2">
+
+    <button class="btn" onclick="sumAdd()">+</button>
+    <button class="btn" onclick="subAdd()">-</button>
+
+    <h1 id="res"></h1>
+
+    <script>
+
+        function sumAdd() {
+            let x = document.getElementById("data1").value
+            let y = document.getElementById("data2").value
+
+            a = Number(x)
+            b = Number(y)
+
+            // console.log(typeof (x) == "string")
+            // if ((typeof (a) == "string") && (typeof (b) == "string")) {
+            //     window.alert("String in not Allow!")
+            // } else {
+            //     document.getElementById("res").innerHTML = a + b
+            // }
+
+        }
+
+        function subAdd() {
+            let x = document.getElementById("data1").value
+            let y = document.getElementById("data2").value
+
+            a = Number(x)
+            b = Number(y)
+
+            document.getElementById("res").innerHTML = a - b // "12" + "23"
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

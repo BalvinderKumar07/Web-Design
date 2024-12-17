@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Data Example</title>
+    <style>
+        #card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 5%;
+        }
+
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            /* max-width: 300px; */
+            /* margin: 20px auto; */
+            padding: 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            margin: 16px 0 8px;
+            font-size: 1.5em;
+        }
+
+        .card p {
+            margin: 0 0 12px;
+            color: #555;
+        }
+
+        .card .price {
+            font-weight: bold;
+            color: #2a9d8f;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="card-container"></div>
+
+    <script>
+        // Array of product objects
+        const products = [
+            {
+                name: "Wireless Headphones",
+                description: "High-quality wireless headphones with noise cancellation.",
+                price: "$99.99",
+                image: "https://via.placeholder.com/300?text=Headphones"
+            },
+            {
+                name: "Smart Watch",
+                description: "Feature-packed smart watch with health tracking.",
+                price: "$149.99",
+                image: "https://via.placeholder.com/300?text=Smart+Watch"
+            },
+            {
+                name: "Bluetooth Speaker",
+                description: "Portable speaker with powerful sound.",
+                price: "$79.99",
+                image: "https://via.placeholder.com/300?text=Speaker"
+            }, {
+                name: "Bluetooth Speaker",
+                description: "Portable speaker with powerful sound.",
+                price: "$79.99",
+                image: "https://via.placeholder.com/300?text=Speaker"
+            },
+            {
+                name: "Bluetooth Speaker",
+                description: "Portable speaker with powerful sound.",
+                price: "$79.99",
+                image: "https://via.placeholder.com/300?text=Speaker"
+            }, {
+                name: "Bluetooth Speaker",
+                description: "Portable speaker with powerful sound.",
+                price: "$79.99",
+                image: "https://via.placeholder.com/300?text=Speaker"
+            }
+        ];
+
+        // Container for cards
+        const cardContainer = document.getElementById('card-container');
+
+        // Loop through the products and generate card HTML
+        let cardHTML = '';
+        for (let i = 0; i < products.length; i++) {
+            cardHTML = cardHTML + `
+                <div class="card">
+                    <img src="${products[i].image}" alt="${products[i].name}">
+                    <h3>${products[i].name}</h3>
+                    <p>${products[i].description}</p>
+                    <p class="price">${products[i].price}</p>
+                </div>
+            `;
+        }
+
+        // Display all cards
+        cardContainer.innerHTML = cardHTML;
+    </script>
+</body>
+
+</html>
