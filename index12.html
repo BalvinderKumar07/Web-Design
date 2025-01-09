@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="number" id="data"><br><br>
+    <button class="btn" id="btn">Click</button>
+
+    <h1 id="demo"></h1>
+
+    <script>
+
+        document.getElementById("btn").onclick = function () {
+
+            let number = document.getElementById("data").value;
+            function getPerfectSquares(limit) {
+                const perfectSquares = [];
+                for (let i = 1; i * i <= limit; i++) {
+                    perfectSquares.push(i * i);
+                }
+                return perfectSquares;
+            }
+
+            // Example usage:
+            const squares = getPerfectSquares(number);
+            document.getElementById("demo").innerHTML = squares;
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

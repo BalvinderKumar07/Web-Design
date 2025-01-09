@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .hello2 {
+            background-color: red;
+            text-align: center;
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="btn" onclick="myfun()">click</button>
+
+    <!-- <h1>j</h1>
+    <h1>s</h1>
+    <h1>f</h1>
+    <h1></h1>
+    <h1></h1> -->
+
+    <ul id="juice">
+        <li>Tea</li>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Juice</li>
+        <li>Water</li>
+        <li>Bread</li>
+        <li>Apple</li>
+    </ul>
+
+
+    <h2 id="hello">hello</h2>
+
+
+
+    <script>
+
+        // document.getElementsByTagName("h1")[1].innerHTML = "helloWorld";
+
+        // document.getElementsByClassName("hello")[0].innerHTML = "Hello World";
+
+        // var h2 = document.createElement("h2");
+        // h2.className = "hello";
+        // h2.innerHTML = "Hello World";
+
+        function myfun() {
+            // document.getElementById("hello").setAttribute("class", "hello2");
+
+            // let x = document.createElement("h1");
+            // x.innerText = "Hello World";
+            // document.body.appendChild(x);
+
+            x = document.getElementById("juice");
+            x.removeChild(x.firstElementChild);
+        }
+
+
+    </script>
+
+</body>
+
+</html>

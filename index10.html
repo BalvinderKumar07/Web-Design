@@ -1,0 +1,71 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+
+<body>
+
+    <div>
+
+        <form id="form" onsubmit="return enterdata(event)">
+            <label> Name </label>
+            <input type="text" id="name">
+            <br><br>
+
+            <label> Email </label>
+            <input type="email" id="email">
+            <br><br>
+
+            <label> Mobile No </label>
+            <input type="number" id="number">
+            <br><br>
+
+            <label> Password </label>
+            <input type="password" id="password">
+            <br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        function enterdata(event) {
+            // Prevent default form submission behavior
+            event.preventDefault();
+
+            // Get the form element
+            const form = document.getElementById("form");
+
+            // Get input values
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let number = document.getElementById("number").value.trim();
+            let password = document.getElementById("password").value.trim();
+
+            // Check if all fields are filled
+            if (name != "" && email != "" && number != "" && password != "") {
+
+                // Validate name (only letters and spaces allowed)
+                const nameRegex = /^[a-zA-Z\s]+$/;
+                if (!nameRegex.test(name)) {
+                    alert("This Name Is Not Valid! Use only letters and spaces.");
+                    return false;
+                } else {
+                    alert("Data is Successfully submited!");
+                    form.reset();
+                    return true;
+                }
+
+            } else {
+                alert("All fields must be filled out!");
+                return false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Ludo Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(5, 80px);
+            grid-template-rows: repeat(5, 80px);
+            gap: 5px;
+            margin: 20px auto;
+            width: 420px;
+        }
+
+        .cell {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            font-size: 18px;
+        }
+
+        .player1 {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .player2 {
+            background-color: yellow;
+            color: black;
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .player3 {
+            background-color: blue;
+            color: white;
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .player4 {
+            background-color: green;
+            color: white;
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .controls {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #70a1ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #467fd0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simple Ludo Game</h1>
+    <div class="board" id="board"></div>
+    <div class="controls">
+        <button id="rollDice">Roll Dice</button>
+        <p id="status">Player 1's Turn</p>
+        <p id="diceResult">Dice: 0</p>
+    </div>
+
+    <script>
+        const boardSize = 5;
+        const board = document.getElementById('board');
+        const rollDiceBtn = document.getElementById('rollDice');
+        const status = document.getElementById('status');
+        const diceResult = document.getElementById('diceResult');
+
+        const players = [
+            { id: 1, position: 0, className: 'player1' },
+            { id: 2, position: 0, className: 'player2' },
+            { id: 3, position: 0, className: 'player3' },
+            { id: 4, position: 0, className: 'player4' }
+        ];
+
+        let currentPlayer = 0;
+
+        // Create the board
+        const createBoard = () => {
+            board.innerHTML = '';
+            for (let i = 0; i < boardSize * boardSize; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.setAttribute('data-index', i);
+                board.appendChild(cell);
+            }
+            updateBoard();
+        };
+
+        // Update board with player positions
+        const updateBoard = () => {
+            document.querySelectorAll('.cell').forEach(cell => {
+                cell.innerHTML = '';
+            });
+
+            players.forEach(player => {
+                const playerCell = document.querySelector(`.cell[data-index='${player.position}']`);
+                if (playerCell) {
+                    const playerDiv = document.createElement('div');
+                    playerDiv.classList.add(player.className);
+                    playerDiv.textContent = `P${player.id}`;
+                    playerCell.appendChild(playerDiv);
+                }
+            });
+        };
+
+        // Roll the dice
+        const rollDice = () => {
+            return Math.floor(Math.random() * 6) + 1;
+        };
+
+        // Handle player movement
+        const movePlayer = (player, steps) => {
+            player.position += steps;
+            if (player.position >= boardSize * boardSize - 1) {
+                player.position = boardSize * boardSize - 1;
+                alert(`Player ${player.id} wins!`);
+                resetGame();
+            }
+        };
+
+        // Reset the game
+        const resetGame = () => {
+            players.forEach(player => (player.position = 0));
+            currentPlayer = 0;
+            status.textContent = `Player 1's Turn`;
+            diceResult.textContent = 'Dice: 0';
+            updateBoard();
+        };
+
+        // Roll dice button click
+        rollDiceBtn.addEventListener('click', () => {
+            const dice = rollDice();
+            diceResult.textContent = `Dice: ${dice}`;
+
+            const player = players[currentPlayer];
+            movePlayer(player, dice);
+            updateBoard();
+
+            currentPlayer = (currentPlayer + 1) % players.length;
+            status.textContent = `Player ${players[currentPlayer].id}'s Turn`;
+        });
+
+        // Initialize game
+        createBoard();
+    </script>
+</body>
+
+</html>  
